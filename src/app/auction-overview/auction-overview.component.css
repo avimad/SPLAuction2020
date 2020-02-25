@@ -1,0 +1,33 @@
+table.table tbody tr td
+{
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+.teamlogo{
+    height: 100px;
+}
+
+.hunters{
+ background-color: purple;
+ color: white;
+}
+.triumph{
+    background-color: skyblue;
+    color: black;
+}
+.fighters{
+    background-color: red;
+    color: white;
+}
+.lions{
+    background-color: black;
+    color: white;
+}
+.strikers{
+    background-color: blue;
+    color: white;
+}
+.ebullient{
+    background-color: seagreen;
+    color: white;
+}
