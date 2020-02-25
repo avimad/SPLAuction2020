@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { players, teams } from '../models/auction';
+import { Team, Player } from '../models/auction';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +8,15 @@ import { players, teams } from '../models/auction';
 export class AuctionService {
 
   constructor(private db: AngularFirestore) { }
-  savePlayers(data:players) {
-   
-   return this.db.collection('players').add(data);
+  savePlayers(data: Player) {
+
+    return this.db.collection('players').add(data);
   }
-  saveTeams(data:teams) {
-    
-   return this.db.collection('teams').add(data);
+  saveTeams(data: Team) {
+
+    return this.db.collection('teams').add(data);
   }
-  getPlayers(){
+  getPlayers() {
     return this.db.collection('players').get();
   }
 

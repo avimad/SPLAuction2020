@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuctionService } from '../services/auction.service';
-import { players, teams } from '../models/auction';
+import { Player, Team } from '../models/auction';
 
 @Component({
   selector: 'app-auction-overview',
@@ -10,7 +10,7 @@ import { players, teams } from '../models/auction';
 export class AuctionOverviewComponent implements OnInit {
 
   constructor(private service: AuctionService) { }
-  players: players[] = [{
+  players: Player[] = [{
     name: 'Avinash K',
     isSelected: false,
     amount: 0,
@@ -26,8 +26,8 @@ export class AuctionOverviewComponent implements OnInit {
     isSelected: false,
     amount: 0,
     team: null
-  }]
-  teams: teams[] = [{
+  }];
+  teams: Team[] = [{
     name: 'SDD Hunters',
     credits: 40000
   },
@@ -50,7 +50,7 @@ export class AuctionOverviewComponent implements OnInit {
   {
     name: 'SDD Ebullient',
     credits: 40000
-  },]
+  }];
 
   ngOnInit() {
     // this.players.forEach(elem => {

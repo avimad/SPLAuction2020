@@ -6,7 +6,9 @@ table.table tbody tr td
 .teamlogo{
     height: 100px;
 }
-
+.table td{
+    padding:5px;
+}
 .hunters{
  background-color: purple;
  color: white;
