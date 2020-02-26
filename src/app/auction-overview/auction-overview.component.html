@@ -22,44 +22,109 @@
                     <span><img class="teamlogo" src="assets/teamlogos/ebullient.png" alt="SDD Ebullient"></span>
                 </th>
             </tr>
-          
+
             <tr>
 
-                <td><b>Credits remain:</b> 40000</td>
-                <td><b>Credits remain:</b> 40000</td>
-                <td><b>Credits remain:</b> 40000</td>
-                <td><b>Credits remain:</b> 40000</td>
-                <td><b>Credits remain:</b> 40000</td>
-                <td><b>Credits remain:</b> 40000</td>
+                <td><h5><b>Credits remain:</b> {{sdd01credits.credit}}</h5></td>
+                <td><h5><b>Credits remain:</b> {{sdd02credits.credit}}</h5></td>
+                <td><h5><b>Credits remain:</b> {{sdd03credits.credit}}</h5></td>
+                <td><h5><b>Credits remain:</b> {{sdd04credits.credit}}</h5></td>
+                <td><h5><b>Credits remain:</b> {{sdd05credits.credit}}</h5></td>
+                <td><h5><b>Credits remain:</b> {{sdd06credits.credit}}</h5></td>
             </tr>
             <tr>
 
-                <td><b>Players remain:</b> 13</td>
-                <td><b>Players remain:</b> 13</td>
-                <td><b>Players remain:</b> 13</td>
-                <td><b>Players remain:</b> 13</td>
-                <td><b>Players remain:</b> 13</td>
-                <td><b>Players remain:</b> 13</td>
+                <td><b>Players remain:</b> {{sdd01credits.players}}</td>
+                <td><b>Players remain:</b> {{sdd02credits.players}}</td>
+                <td><b>Players remain:</b> {{sdd03credits.players}}</td>
+                <td><b>Players remain:</b> {{sdd04credits.players}}</td>
+                <td><b>Players remain:</b> {{sdd05credits.players}}</td>
+                <td><b>Players remain:</b> {{sdd06credits.players}}</td>
             </tr>
         </thead>
         <tbody>
             <tr>
+                <td>
+                    <table class="innerTable">
+                        <tbody>
+                            <tr *ngFor="let player of sdd01">
+                                <td class="hunters">{{player.playerName}} <span
+                                        class="badge badge-warning">{{player.soldAmout}}</span>
+                                </td>
 
-                <td class="hunters">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
-                <td class="triumph">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
-                <td class="fighters">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
-                <td class="lions">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
-                <td class="strikers">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
-                <td class="ebullient">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table class="innerTable">
+                        <tbody>
+                            <tr *ngFor="let player of sdd02">
+                                <td class="triumph">{{player.playerName}} <span
+                                        class="badge badge-warning">{{player.soldAmout}}</span>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table class="innerTable">
+                        <tbody>
+                            <tr *ngFor="let player of sdd03">
+                                <td class="fighters">{{player.playerName}} <span
+                                        class="badge badge-warning">{{player.soldAmout}}</span>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table class="innerTable">
+                        <tbody>
+                            <tr *ngFor="let player of sdd04">
+                                <td class="lions">{{player.playerName}} <span
+                                        class="badge badge-warning">{{player.soldAmout}}</span>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table class="innerTable">
+                        <tbody>
+                            <tr *ngFor="let player of sdd05">
+                                <td class="strikers">{{player.playerName}} <span
+                                        class="badge badge-warning">{{player.soldAmout}}</span>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table class="innerTable">
+                        <tbody>
+                            <tr *ngFor="let player of sdd06">
+                                <td class="ebullient">{{player.playerName}} <span
+                                        class="badge badge-warning">{{player.soldAmout}}</span>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
             </tr>
             <tr>
-
+<!-- 
                 <td class="hunters">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
                 <td class="triumph">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
                 <td class="fighters">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
                 <td class="lions">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
                 <td class="strikers">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
-                <td class="ebullient">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td>
+                <td class="ebullient">Avinash Kumar Raikwa <span class="badge badge-warning">2000</span></td> -->
             </tr>
 
         </tbody>

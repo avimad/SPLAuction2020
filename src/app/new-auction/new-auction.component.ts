@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Players, Player, Teams, TeamPlayer } from '../models/auction';
 import { AuctionService } from '../services/auction.service';
 import { Subject } from 'rxjs';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-auction',
@@ -12,11 +12,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class NewAuctionComponent implements OnInit, OnDestroy {
   destroy$: Subject<boolean> = new Subject<boolean>();
   players: Players[] = [];
-  selectedPlayer = { id: '', name: '' }
+  selectedPlayer = { id: '', name: '' };
   auctionForm: FormGroup;
   constructor(private service: AuctionService, private fb: FormBuilder) { }
   selectedTeam: string;
   Teams: Teams[] = [];
+
 
   ngOnInit() {
     this.createForm();
@@ -26,8 +27,8 @@ export class NewAuctionComponent implements OnInit, OnDestroy {
   }
   createForm() {
     this.auctionForm = this.fb.group({
-      teamId: [],
-      soldAmount: [1000]
+      teamId: [null, Validators.required],
+      soldAmount: [1000, Validators.required]
     });
   }
   getAllPlayers() {
@@ -39,6 +40,7 @@ export class NewAuctionComponent implements OnInit, OnDestroy {
         record.player = elem.data();
         this.players.push(record);
       });
+      this.players = this.players.filter(r => r.player.isSelected === false);
       this.chooseRandom();
     });
   }
@@ -47,10 +49,10 @@ export class NewAuctionComponent implements OnInit, OnDestroy {
     this.service.getTeams().subscribe(res => {
       res.docs.forEach(elem => {
         const record: Teams = {};
-        record.id = elem.id;
+        record.id = elem.data().code;
         record.team = elem.data();
         this.Teams.push(record);
-      })
+      });
     });
   }
   Playersold() {
@@ -58,7 +60,7 @@ export class NewAuctionComponent implements OnInit, OnDestroy {
     playersold.playerId = this.selectedPlayer.id;
     playersold.playerName = this.selectedPlayer.name;
     playersold.soldAmout = this.auctionForm.controls.soldAmount.value;
-    playersold.teamId = this.auctionForm.controls.teamId.value
+    playersold.teamId = this.auctionForm.controls.teamId.value;
     playersold.teamName = this.Teams.find(r => r.id === this.auctionForm.controls.teamId.value).team.name;
     this.service.saveTeamPlayer(playersold).then(res => {
       alert(playersold.playerName + 'sold to' + playersold.teamName + 'in amount' + playersold.soldAmout);
@@ -66,7 +68,9 @@ export class NewAuctionComponent implements OnInit, OnDestroy {
       this.players.splice(index, 1);
       const player: Player = {};
       player.isSelected = true;
-      this.service.updatePlayer(playersold.playerId, player).then()
+      this.service.updatePlayer(playersold.playerId, player).then();
+      this.chooseRandom();
+      this.auctionForm.reset();
     });
   }
 

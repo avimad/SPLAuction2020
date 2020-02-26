@@ -3,8 +3,6 @@
 export interface Player {
     name?: string;
     isSelected?: boolean;
-    amount?: number;
-    team?: string;
 }
 export interface Players {
     id?: string;
@@ -13,6 +11,7 @@ export interface Players {
 export interface Team {
     name?: string;
     credits?: number;
+    code?: string;
 }
 export interface Teams {
     id?: string;

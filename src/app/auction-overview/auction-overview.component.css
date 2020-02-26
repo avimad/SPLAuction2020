@@ -1,13 +1,19 @@
 table.table tbody tr td
 {
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
+  /* border-left: 1px solid grey;
+  border-right: 1px solid grey; */
 }
 .teamlogo{
     height: 100px;
 }
 .table td{
     padding:5px;
+}
+.innerTable{
+    width: 100%;
+}
+.badge{
+    float: right;
 }
 .hunters{
  background-color: purple;
