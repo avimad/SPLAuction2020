@@ -6,3 +6,18 @@
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
   }
+  .amount{
+    justify-content: center; width: 65%; padding-left: 37%;
+  }
+  .amount >input{
+    padding-left: 35%;
+  }
+  .example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }

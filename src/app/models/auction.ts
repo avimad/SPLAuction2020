@@ -18,5 +18,12 @@ export interface Teams {
     id?: string;
     team?: Team;
 }
+export interface TeamPlayer {
+    playerId?: string;
+    playerName?: string;
+    teamId?: string;
+    teamName?: string;
+    soldAmout?: number;
+}
 
 

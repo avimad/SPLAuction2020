@@ -12,20 +12,49 @@
         </ul>
     </div>
     <div class="col-8">
-        <mat-card>
-            <div class="row" style="justify-content: center">
 
-                <h1 class="display-3">{{playerName| uppercase}}</h1>
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="auctionForm" (ngSubmit)="Playersold()">
+                    <h5 class="card-title">
+                        <div class="row" style="justify-content: center">
+                            <h1 class="display-3">{{selectedPlayer.name| uppercase}}</h1>
+                        </div>
+                    </h5>
+                    <!-- <h6 class="card-subtitle mb-2 text-muted">Allrounder</h6> -->
+                    <div class="card-text">
+
+                        <div class="form-group">
+                            <!-- <h4 class="display-4">Amount</h4> -->
+                            <br />
+                            <br />
+
+                            <div class="row amount">
+                                <input type="number" class="form-control form-control-lg" step="1000"
+                                    aria-describedby="emailHelp" placeholder="" value="1000"
+                                    formControlName='soldAmount' />
+                            </div>
+
+                        </div>
+                        <div>
+                            <h5>Sold to </h5>
+                        </div>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" 
+                        formControlName="teamId">
+                            <mat-radio-button class="example-radio-button" *ngFor="let record of Teams"
+                                [value]="record.id">
+                                {{record.team.name}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="row" style="justify-content: center">
+                        <button type="submit" class="btn btn-primary">Done</button>
+                    </div>
+
+                </form>
             </div>
-            <mat-card-header>
-                <button (click)="chooseRandom()"> choose</button>
-            </mat-card-header>
-            <mat-card-content>
+        </div>
 
-            </mat-card-content>
-            <mat-card-actions>
-            </mat-card-actions>
-        </mat-card>
     </div>
 
 

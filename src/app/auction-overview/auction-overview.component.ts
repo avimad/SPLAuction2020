@@ -53,6 +53,7 @@ export class AuctionOverviewComponent implements OnInit {
   }];
 
   ngOnInit() {
+   // this.service.generatePDf();
     // this.players.forEach(elem => {
     //   this.service.savePlayers(elem);
     // })

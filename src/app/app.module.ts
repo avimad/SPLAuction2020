@@ -13,6 +13,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatCardModule} from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 const routes: Routes = [
   { path: '', component: AuctionOverviewComponent },
@@ -33,7 +36,10 @@ const routes: Routes = [
     AngularFireAuthModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatRadioModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
