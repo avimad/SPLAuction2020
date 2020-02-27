@@ -27,6 +27,7 @@
     "jspdf": "^1.5.3",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
+    "xlsx": "^0.15.5",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

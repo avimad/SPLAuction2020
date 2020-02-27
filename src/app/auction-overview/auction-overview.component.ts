@@ -10,17 +10,8 @@ import { Player, Team, TeamPlayer } from '../models/auction';
 export class AuctionOverviewComponent implements OnInit {
 
   constructor(private service: AuctionService) { }
-  players: Player[] = [{
-    name: 'Avinash K',
-    isSelected: false
-  },
-  {
-    name: 'Avinash R',
-    isSelected: false
-  }, {
-    name: 'Avinash V',
-    isSelected: false
-  }];
+
+  
   teams: Team[] = [{
     name: 'SDD Hunters',
     credits: 40000,
@@ -67,7 +58,6 @@ export class AuctionOverviewComponent implements OnInit {
   sdd05: TeamPlayer[] = [];
   sdd06: TeamPlayer[] = [];
   ngOnInit() {
-    // this.service.generatePDf();
     // this.players.forEach(elem => {
     //   this.service.savePlayers(elem);
     // })
@@ -88,26 +78,21 @@ export class AuctionOverviewComponent implements OnInit {
       this.sdd04 = this.teamPlayers.filter(r => r.teamId === 'SDD04');
       this.sdd05 = this.teamPlayers.filter(r => r.teamId === 'SDD05');
       this.sdd06 = this.teamPlayers.filter(r => r.teamId === 'SDD06');
-      this.sdd01credits.credit = 40000 - this.getRemainingCredits(this.sdd01);
-      this.sdd01credits.players = 13 - this.getRemainingPlayers(this.sdd01);
+      this.sdd01credits.credit = 40000 - this.service.getRemainingCredits(this.sdd01);
+      this.sdd01credits.players = 13 - this.service.getRemainingPlayers(this.sdd01);
 
-      this.sdd02credits.credit = 40000 - this.getRemainingCredits(this.sdd02);
-      this.sdd02credits.players = 13 - this.getRemainingPlayers(this.sdd02);
-      this.sdd03credits.credit = 40000 - this.getRemainingCredits(this.sdd03);
-      this.sdd03credits.players = 13 - this.getRemainingPlayers(this.sdd03);
-      this.sdd04credits.credit = 40000 - this.getRemainingCredits(this.sdd04);
-      this.sdd04credits.players = 13 - this.getRemainingPlayers(this.sdd04);
-      this.sdd05credits.credit = 40000 - this.getRemainingCredits(this.sdd05);
-      this.sdd05credits.players = 13 - this.getRemainingPlayers(this.sdd05);
-      this.sdd06credits.credit = 40000 - this.getRemainingCredits(this.sdd06);
-      this.sdd06credits.players = 13 - this.getRemainingPlayers(this.sdd06);
+      this.sdd02credits.credit = 40000 - this.service.getRemainingCredits(this.sdd02);
+      this.sdd02credits.players = 13 - this.service.getRemainingPlayers(this.sdd02);
+      this.sdd03credits.credit = 40000 - this.service.getRemainingCredits(this.sdd03);
+      this.sdd03credits.players = 13 - this.service.getRemainingPlayers(this.sdd03);
+      this.sdd04credits.credit = 40000 - this.service.getRemainingCredits(this.sdd04);
+      this.sdd04credits.players = 13 - this.service.getRemainingPlayers(this.sdd04);
+      this.sdd05credits.credit = 40000 - this.service.getRemainingCredits(this.sdd05);
+      this.sdd05credits.players = 13 - this.service.getRemainingPlayers(this.sdd05);
+      this.sdd06credits.credit = 40000 - this.service.getRemainingCredits(this.sdd06);
+      this.sdd06credits.players = 13 - this.service.getRemainingPlayers(this.sdd06);
     });
   }
-  getRemainingCredits(array: TeamPlayer[]): number {
-    return array.reduce((a, b) => a + b.soldAmout, 0);
-  }
-  getRemainingPlayers(array: TeamPlayer[]): number {
-    return array.length;
-  }
+
 
 }

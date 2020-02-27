@@ -1,11 +1,12 @@
 <div class="row" style="justify-content: center">
     <h3><b>SPL Auction 2020</b></h3>
+    <!-- <input type="file" (change)="onFileChange($event)" multiple="false" /> -->
 </div>
 <div class="row">
 
     <div class="col-3">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item active"><b>Players</b></li>
+            <li class="list-group-item active"><b>Players ({{players?.length}})</b></li>
             <li class="list-group-item" *ngFor="let record of players">
                 {{record.player.name}}
             </li>
@@ -14,7 +15,7 @@
     <div class="col-8">
 
         <div class="card">
-            <div class="card-body">
+            <div class="card-body" *ngIf="players?.length>0">
                 <form [formGroup]="auctionForm" (ngSubmit)="Playersold()">
                     <h5 class="card-title">
                         <div class="row" style="justify-content: center">
@@ -39,8 +40,8 @@
                         <div>
                             <h5>Sold to </h5>
                         </div>
-                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" 
-                        formControlName="teamId">
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                            formControlName="teamId">
                             <mat-radio-button class="example-radio-button" *ngFor="let record of Teams"
                                 [value]="record.id">
                                 {{record.team.name}}
@@ -49,9 +50,18 @@
                     </div>
                     <div class="row" style="justify-content: center">
                         <button type="submit" class="btn btn-primary" [disabled]="auctionForm.invalid">Done</button>
+                        &nbsp; &nbsp; <button type="button" class="btn btn-warning" (click)="chooseRandom()">Skip</button>
                     </div>
+                   
 
                 </form>
+            </div>
+            <div class="card-body" *ngIf="players?.length===0">
+                <h5 class="card-title">
+                    <div class="row" style="justify-content: center">
+                        <h1 class="display-3">Auction Completed </h1>
+                    </div>
+                </h5>
             </div>
         </div>
 
